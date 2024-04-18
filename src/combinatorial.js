@@ -10,12 +10,12 @@ SuperType.prototype.sayName = function() {
 
 function SubType(name, age) {
   // inherit properties
-  SuperType.call(this, name);
+  SuperType.call(this, name); // 第二次调用 SuperType()
   this.age = age;
 }
 
 // inherit methods
-SubType.prototype = new SuperType();
+SubType.prototype = new SuperType(); // 第一次调用 SuperType()
 SubType.prototype.sayAge = function() {
   console.log(this.age);
 }
@@ -33,3 +33,10 @@ instance2.sayAge(); // 27
 
 // 组合继承弥补了原型链和盗用构造函数的不足，成为 JavaScript 中最常用的继承模式。
 // 而且组合继承也保留了 instanceof 操作符和 isPrototypeOf() 方法识别合成对象的能力。
+
+
+// 原型式继承
+// 寄生式继承
+// 寄生组合式继承
+
+// 寄生式组合继承可以算是引用类型继承的最佳模式。
